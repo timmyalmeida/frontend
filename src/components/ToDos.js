@@ -13,7 +13,7 @@ class ToDos extends React.Component{
         this.onBarButtonClick=this.onBarButtonClick.bind(this)
         //this.state.showlist = this.state.list;
     }
-     //2 是全部 1 已完成 0未完成
+     //2 是全部 1 已完成 0未完成.
     state = {
         list: [{name:"title1",id:0,finish:0}, {name:"titl2",id:1,finish:0}, {name:"title3",id:2,finish:0}],
         showtype:2,
