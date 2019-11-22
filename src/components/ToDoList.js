@@ -1,9 +1,12 @@
 import React, { Component } from 'react';
 import {Icon,Checkbox}  from 'antd';
+const antIcon = <Icon type="loading" style={{ fontSize: 24 }} spin />;
 class ToDoList extends React.Component{
     //数据父组件会传进来
     constructor(props){
         super(props)
+        //this.state = {loading: props.loading};
+  
     }
 
     display(finishType,finish){
@@ -15,8 +18,13 @@ class ToDoList extends React.Component{
         }
 
     }
+ 
     render(){
-
+        console.log("todolist render() " + this.props.loading);
+        //if(this.props.loading){
+           // return (antIcon)
+        //}
+        
         return(this.props.list.map((li,index)=>{
             return (
 

@@ -1,0 +1,11 @@
+.menu-link {
+    display: inline-block;
+    width: 100px;
+    text-decoration: none;
+    text-align: center;
+    background: #000000;
+    margin:5px
+  }
+  .menu-link.active2 {
+    background: tomato;
+  }
