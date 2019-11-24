@@ -1,35 +1,35 @@
-import React,{useReducer, useEffect, useState} from 'react';
+import React,{useReducer, useEffect, useState,useContext} from 'react';
 import './App.css';
 import {getLocationCon} from './components/Utils'
-import { BrowserRouter as Router, Route, Link,Redirect } from "react-router-dom";
+import { BrowserRouter as Router, Route, Link,Redirect,withRouter,Switch } from "react-router-dom";
 import withDataSource from './components/withDataSource'
 import  SearchBar  from './components/SearchBar';
 import Home from './components/Home';
+import Home2 from './components/Home';
 import NavLinkHeader from './components/NavLinkHeader'
 import  {FareTable} from './components/FareTable'
 import Login from './components/Login';
 import loginReducer from './reducer/UserReducer'
 import UserContext from './UserConetxt'
-
+//import WithLonginRoute from './components/WithLoginRoute'
 //import { GlobalStyle }  from './style.js';
 
 const initialState = {name:"访客default",login:false};
 
 
-const WithLonginRoute=(props)=>{
-	return <Route 
+ function WithLoginComponent(Component){
 	
-	{...props} 
-	render={(p)=>{
-		if(props.component){
-			return props.component
-		}
-		else{
-			return props.render(p);
-		}
+	//const {state} = useContext(UserContext);     
+	
+	//if(!state.login){          
+        //props.history.replace({ pathname:"/login"})
+        //return <Route    path="/login" component={Login} />
+        //return null
+        //return <Redirect to={{pathname: '/login'}}/>
+   // }
 
-	}}
-	/>
+	return Component
+  
 }
 
 
@@ -63,11 +63,11 @@ export default function App(props)  {
 
 		
       <Router>
-	
+	  {/* <Auth /> */}
 	  <NavLinkHeader></NavLinkHeader>
-	     
 		 <Route  exact  name="登录"     path="/login"   component={Login} />
-		 <Route  exact  name="首页"     path="/"   component={Home} />			 
+		 <Route  exact  name="首页"     path="/"   component={WithLoginComponent(Home)} />	
+		 <Route  exact  name="首页2"     path="/home2"   component={WithLoginComponent(Home)} />			 		 
 			 <Route path="/list" render={() => (        
 			 <Route name="列表页"   path="/list"    
 				render={(props) => (  
@@ -76,21 +76,13 @@ export default function App(props)  {
 					<TableWithDataSource search={ search}  searchCons={ searchCons} />
 					</div>
 				
-				  )}/>
-				
-				                                                                                                                                                                                                                                                    			    
+				  )}/>								                                                                                                                                                                                                                                                    			    
 		
- 	   )}/>     
-				  
-			 
-      
-			
+ 	   )}/>     				  					
     </Router>       
       </UserContext.Provider>
     </div>
-		)
- 
-		
+		)	
 	}
  ;
  

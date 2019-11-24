@@ -14,7 +14,7 @@ let textInput1 = React.createRef();
 let textInput2 = React.createRef();
 function Login(props){
     const { dispatch, state } = useContext(UserContext);
-    var jumpBack = () => {
+    const jumpBack = () => {
         // 打哪儿来回哪去
         const { location } = props
         const from = location.state && location.state.from

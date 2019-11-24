@@ -16,6 +16,7 @@ class NavLinkHeader extends React.Component{
       
         <div  style={{float:"left"}}>       
         <NavLink    className="menu-link" activeClassName="active2" activeStyle={{color: '#fff'}} exact to="/"  >首页</NavLink>
+        <NavLink    className="menu-link" activeClassName="active2" activeStyle={{color: '#fff'}} exact to="/home2"  >首页2</NavLink>
         <NavLink    className="menu-link" activeClassName="active2"  to="/list"  >运价列表</NavLink>
         <NavLink    className="menu-link" activeClassName="active2"  to="/us" >关于我们</NavLink>
        

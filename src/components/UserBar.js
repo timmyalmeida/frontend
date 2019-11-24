@@ -13,10 +13,16 @@ function UserBar(props){
 
 
     }
-    return (
-    <div>
-      <a  onClick={(e)=>{e.preventDefault();logoutClick() } }> 注销登录</a>
-  
-    </div>)
+    if(state.login){
+        return (
+            <div>
+              <a  onClick={(e)=>{e.preventDefault();logoutClick() } }> 注销登录</a>
+          
+            </div>)
+    }
+    else{
+        return null
+    }
+   
   }
   export default withRouter(UserBar)

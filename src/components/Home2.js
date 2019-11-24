@@ -5,14 +5,9 @@ import { withRouter,BrowserRouter as Router, Route, Link,Redirect } from "react-
 import {getUser, isLogin, login} from './Utils'
 import loginReducer from '../reducer/UserReducer'
 import UserContext from '../UserConetxt'
-//const FC = ({children})=>children("BBB")
-const FC = (props)=>{
-   let {children} = props;
-    return children()
-}
 
   
-function Home (props) {
+function Home2 (props) {
    let [name,setname] = useState("not login")
    const { dispatch, state } = useContext(UserContext);
 
@@ -26,7 +21,7 @@ function Home (props) {
     
  
      if(!state.login){          
-     // props.history.push({ pathname:"/login",state:{ from: "/" }})
+       props.history.push({ pathname:"/login",state:{ from: "/" }})
        return null
      }
       else{
@@ -36,6 +31,6 @@ function Home (props) {
    
       }
 }
-export default withRouter(Home) 
+export default withRouter(Home2) 
  
         
