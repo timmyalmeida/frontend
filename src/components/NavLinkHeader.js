@@ -11,9 +11,7 @@ class NavLinkHeader extends React.Component{
 
   render(){
       return (
-        <div >
-
-      
+        <div >     
         <div  style={{float:"left"}}>       
         <NavLink    className="menu-link" activeClassName="active2" activeStyle={{color: '#fff'}} exact to="/"  >首页</NavLink>
         <NavLink    className="menu-link" activeClassName="active2" activeStyle={{color: '#fff'}} exact to="/home2"  >首页2</NavLink>

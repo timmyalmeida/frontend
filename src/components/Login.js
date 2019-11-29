@@ -20,9 +20,7 @@ function Login(props){
         const from = location.state && location.state.from
         props.history.goBack();
     }
-    const loginClick=()=>{
-        
-
+    const loginClick=()=>{       
         var auth = login(textInput1.current.state.value,textInput2.current.state.value)
         if(auth!=null){
            message.info("success "+auth.auth,1)

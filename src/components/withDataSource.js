@@ -8,7 +8,7 @@ import { checkPropTypes } from 'prop-types'
 
 let  withDataSource=(Component)=>(props)=>{
     const [dataSource, setDataSource] = useState([])
-    //const [search] = useState(props.searchCons);
+    const [search2] = useState(props.searchCons);
     
 
         var con  =getLocationCon();
@@ -27,7 +27,7 @@ let  withDataSource=(Component)=>(props)=>{
             });
             }
     
-          },[props.searchCons.dCity,props.searchCons.aCity]);
+          },[search2.dCity,search2.aCity]);
 
         return  <Component {...props} dataSource= {dataSource} />
 

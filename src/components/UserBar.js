@@ -5,19 +5,15 @@ import UserContext from '../UserConetxt'
 
 function UserBar(props){
     const { dispatch, state } = useContext(UserContext);
-
     let logoutClick=()=>{
         logout()
         dispatch({type:"logout"})
         props.history.push("/");
-
-
     }
     if(state.login){
         return (
             <div>
               <a  onClick={(e)=>{e.preventDefault();logoutClick() } }> 注销登录</a>
-          
             </div>)
     }
     else{
