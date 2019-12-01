@@ -3,7 +3,7 @@ import './App.css';
 import {getLocationCon} from './components/Utils'
 import { BrowserRouter as Router, Route, Link,Redirect,withRouter,Switch } from "react-router-dom";
 import withDataSource from './components/withDataSource'
-import WithLoginComponent from './components/WithLoginComponent'
+import withLoginComponent from './components/WithLoginComponent'
 import  SearchBar  from './components/SearchBar';
 import Home from './components/Home';
 import Home2 from './components/Home2';
@@ -18,6 +18,7 @@ import UserContext from './UserConetxt'
 const initialState = {name:"访客default",login:false};
 const TableWithDataSource  = withDataSource(FareTable)
  
+const LoginSearchBar = withLoginComponent(SearchBar)
 export default function App(props)  {
 	const [state, dispatch] = useReducer(loginReducer, initialState);
 	const [searchCons,setSearchCons]=useState({"dCity":"sha","aCity":"bkk"})
@@ -38,15 +39,19 @@ export default function App(props)  {
       <Router>
 	  <NavLinkHeader></NavLinkHeader>
 		 <Route  exact  name="登录"     path="/login"   component={Login} />
-		 <Route  exact  name="首页"     path="/"   component= {WithLoginComponent(Home,state)}	/>	
-		 <Route  exact  name="首页2"     path="/home2"   component={WithLoginComponent(Home2,state)} />			 		 
-			 <Route path="/list" render={() => (        
+		 <Route  exact  name="首页"     path="/"   component= {withLoginComponent(Home)}	/>	
+		 <Route  exact  name="首页2"     path="/home2"   component={withLoginComponent(Home2)} />			 		 
+			 <Route path="/list" render={() => (
+				 
+				 
 			 <Route name="列表页"   path="/list"    
 				render={(props) => (  
-					<div>
-                    <SearchBar search={ search} searchCons={ searchCons}/>
-					<TableWithDataSource search={ search}  searchCons={ searchCons} />
-					</div>				
+                
+				 <div>
+						<LoginSearchBar search={ search} searchCons={ searchCons} {...props}/>
+						<TableWithDataSource search={ search}  searchCons={ searchCons} />
+						</div> 
+								
 				  )}/>								                                                                                                                                                                                                                                                    			    
 		
  	   )}/>     				  					

@@ -1,18 +1,18 @@
 import React,{useContext} from 'react'
 import UserContext from '../UserConetxt'
 
+ function withLoginComponent(Component){
+    const FC =   (props)=>{
+        const {state } = useContext(UserContext);
+        if(!state.login){
+            props.history.push("/login")
+            return null         
+        }
+        return  <Component {...props} /> 
+    }
 
- function WithLoginComponent(Component,context){
-    //const { dispatch, state } = useContext(UserContext);
-    return (props)=>{
-
-   if(!context.login){
-    props.history.push("/login")
-    return null
-   }
-    return  <Component /> 
+    return FC
+   
 
 }
-
-}
-export default WithLoginComponent
+export default withLoginComponent
